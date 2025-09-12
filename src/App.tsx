@@ -4,6 +4,7 @@ import Features from "./components/features";
 import Footer from "./components/footer";
 import Whatsapp from "./components/whatsapp";
 import About from "./components/about";
+import Pricing from "./components/pricing";
 import Contact from "./components/contact";
 
 
@@ -14,6 +15,7 @@ return (
   <Hero />
   <About />
   <Features />
+  <Pricing />
   <Contact />
   <Footer />
   <Whatsapp />

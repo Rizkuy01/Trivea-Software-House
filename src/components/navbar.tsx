@@ -1,26 +1,80 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import React from "react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+      }
+    );
+
+    const sections = ['hero', 'about', 'features', 'pricing', 'contact'];
+    sections.forEach((sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      sections.forEach((sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+    };
+  }, []);
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setOpen(false);
+    }
+  };
+
+  const linkClass = (id: string) => 
+    `transition ${activeSection === id ? 'text-[#39e639]' : 'text-white'} hover:text-[#39e639]`;
 
   return (
     <nav className="w-full fixed top-0 left-0 z-50 bg-gradient-to-r from-[#1a1a1a]/90 via-[#0d0d0d]/90 to-[#1a1a1a]/90 backdrop-blur-md px-6 md:px-12 py-3 flex justify-between items-center">
       {/* Logo */}
-      <a href="#hero" className="flex items-center gap-2 text-xl md:text-2xl font-bold tracking-wide">
+      <a href="#hero" className="flex items-center gap-2 text-xl md:text-2xl font-bold tracking-wide" onClick={(e) => handleScroll(e, "hero")}>
         <img src="/src/assets/logo.png" alt="Trivea Logo" className="w-8 h-8" />
         Trivea
       </a>
 
       {/* Desktop menu */}
       <div className="hidden md:flex gap-8 items-center text-sm md:text-base">
-        <a href="#features" className="hover:text-[#39e639] transition">
-          Features
+        <a href="#hero" className={linkClass("hero")} onClick={(e) => handleScroll(e, "hero")}>
+          Home
         </a>
-        <a href="#about" className="hover:text-[#39e639] transition">
+        <a href="#about" className={linkClass("about")} onClick={(e) => handleScroll(e, "about")}>
           About
         </a>
-        <a href="#contact" className="hover:text-[#39e639] transition">
+        <a href="#features" className={linkClass("features")} onClick={(e) => handleScroll(e, "features")}>
+          Features
+        </a>
+        <a href="#pricing" className={linkClass("pricing")} onClick={(e) => handleScroll(e, "pricing")}>
+          Price
+        </a>
+        <a href="#contact" className={linkClass("contact")} onClick={(e) => handleScroll(e, "contact")}>
           Contact
         </a>
         <button className="bg-[#39e639] hover:bg-[#0d0d0d] hover:border hover:border-[#39e639] text-white hover:text-[#39e639] px-5 py-2 rounded-lg">
@@ -47,22 +101,22 @@ export default function Navbar() {
         <div className="bg-[#111]/95 backdrop-blur-md border-t border-gray-800 flex flex-col items-center gap-5 py-6 text-base shadow-lg">
           <a
             href="#features"
-            onClick={() => setOpen(false)}
-            className="hover:text-[#39e639]"
+            onClick={(e) => handleScroll(e, "features")}
+            className={linkClass("features")}
           >
             Features
           </a>
           <a
             href="#about"
-            onClick={() => setOpen(false)}
-            className="hover:text-[#39e639]"
+            onClick={(e) => handleScroll(e, "about")}
+            className={linkClass("about")}
           >
             About
           </a>
           <a
             href="#contact"
-            onClick={() => setOpen(false)}
-            className="hover:text-[#39e639]"
+            onClick={(e) => handleScroll(e, "contact")}
+            className={linkClass("contact")}
           >
             Contact
           </a>
