@@ -43,7 +43,7 @@ export default function Footer() {
       </div>
 
       <div className="text-center text-gray-500 mt-8 border-t border-gray-800 pt-6">
-        © {new Date().getFullYear()} SoftHouse. All rights reserved.
+        © {new Date().getFullYear()} Trivea. All rights reserved.
       </div>
     </footer>
   );

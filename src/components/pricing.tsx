@@ -1,7 +1,7 @@
 import { CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-// Definisi interface untuk properti PricingCard
+// Card Properties
 interface PricingCardProps {
   title: string;
   price: string;
@@ -46,44 +46,44 @@ const PricingCard = ({ title, price, benefits, isRecommended, buttonColor, cardB
 export default function Pricing() {
   const packages = [
     {
-      title: "Paket Dasar",
-      price: "Rp 5.000.000",
+      title: "Starter Kit 🚀",
+      price: "Rp 999.000",
       benefits: [
-        "1 Halaman Utama",
-        "Desain Sederhana",
+        "Landing Page Only",
+        "Desain Template",
         "Responsif & Mobile Friendly",
-        "Domain Gratis",
-        "Support 1 Bulan",
+        "Social Media Integration",
+        "Domain & Hosting 1 Tahun",
       ],
       isRecommended: false,
       buttonColor: "bg-lime-400 text-white hover:bg-lime-500",
       cardBorder: "border-lime-400"
     },
     {
-      title: "Paket Pro",
-      price: "Rp 10.000.000",
+      title: "Business Pro ⭐",
+      price: "Rp 4.999.000",
       benefits: [
-        "Hingga 5 Halaman",
+        "Multi-page Website",
         "Desain Kustom Eksklusif",
-        "Animasi & Efek Interaktif",
-        "SEO Dasar",
-        "Integrasi Sosial Media",
-        "Support 3 Bulan",
+        "Content Management System (CMS)",
+        "Basic SEO",
+        "E-commerce Integration",
+        "Priority Support",
       ],
       isRecommended: true,
-      buttonColor: "bg-white text-gray-900 hover:bg-gray-200",
+      buttonColor: "bg-gray-800 text-white hover:bg-gray-900",
       cardBorder: "border-transparent"
     },
     {
-      title: "Paket Premium",
-      price: "Rp 15.000.000",
+      title: "Premium Suite 💼",
+      price: "Rp 9.999.000",
       benefits: [
-        "Hingga 10 Halaman",
-        "Full Stack Development",
-        "Integrasi E-commerce",
+        "Custom Website Lengkap",
+        "Digital Marketing Menyeluruh",
+        "Google Analytics & Tag Manager",
         "Optimasi SEO Lanjutan",
-        "Integrasi CRM",
-        "Support 6 Bulan",
+        "Ads Management",
+        "Pelatihan & Konsultasi Rutin",
       ],
       isRecommended: false,
       buttonColor: "bg-lime-400 text-white hover:bg-lime-500",

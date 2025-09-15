@@ -26,10 +26,7 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-gray-300 text-lg"
           >
-            Kami adalah tim ahli yang berdedikasi untuk membantu bisnis Anda
-            bertransformasi di era digital. Dengan perpaduan kreativitas dan
-            keahlian teknis, kami merancang solusi yang tidak hanya indah,
-            tetapi juga efisien dan berdampak nyata.
+            Kami membantu bisnis Anda berkembang lebih cepat dengan solusi digital yang tepat guna. Setiap website yang kami bangun bukan sekadar tampilan, melainkan alat strategis untuk mencapai target bisnis Anda.
           </motion.p>
 
           {/* Points */}
@@ -45,7 +42,7 @@ export default function About() {
               </div>
               <div>
                 <h4 className="font-semibold text-white">Inovasi</h4>
-                <p className="text-sm text-gray-400">Selalu terdepan.</p>
+                <p className="text-sm text-gray-400">Solusi Relevan.</p>
               </div>
             </motion.div>
 
@@ -60,7 +57,7 @@ export default function About() {
               </div>
               <div>
                 <h4 className="font-semibold text-white">Kolaborasi</h4>
-                <p className="text-sm text-gray-400">Bersama capai sukses.</p>
+                <p className="text-sm text-gray-400">Mitra Jangka Panjang.</p>
               </div>
             </motion.div>
 
@@ -75,7 +72,7 @@ export default function About() {
               </div>
               <div>
                 <h4 className="font-semibold text-white">Kualitas</h4>
-                <p className="text-sm text-gray-400">Performa maksimal.</p>
+                <p className="text-sm text-gray-400">Hasil yang Terukur.</p>
               </div>
             </motion.div>
           </div>
